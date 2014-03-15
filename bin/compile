@@ -36,6 +36,8 @@ echo "LP_DIR: $LP_DIR"
 # include .files when moving things around
 shopt -s dotglob
 
+mkdir -p $BUILD_DIR $CACHE_DIR ${BUNDLE_DIR} ${BUILD_DIR}/local ${BUILD_DIR}/vendor/bin ${COMPOSER_HOME} ${BUILD_DIR}/.profile.d
+
 cd $BUILD_DIR
 
 # move app things to www
