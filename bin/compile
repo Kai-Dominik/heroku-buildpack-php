@@ -33,6 +33,8 @@ echo "LP_DIR: $LP_DIR"
 # include .files when moving things around
 shopt -s dotglob
 
+cd $BUILD_DIR
+
 # move app things to www
 mkdir -p $CACHE_DIR/www
 mv * $CACHE_DIR/www
