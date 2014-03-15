@@ -46,15 +46,14 @@ APACHE_URL="https://heroku-buildpack-php.s3.amazonaws.com/apache-""$APACHE_VERSI
 echo "-----> Bundling Apache version $APACHE_VERSION"
 curl --silent --max-time 60 --location "$APACHE_URL" | tar xz
 
-echo `ls -al`
 
 ##PHP_URL="https://heroku-buildpack-php.s3.amazonaws.com/php-$PHP_VERSION""$heroku_rev"".tar.gz"
 PHP_URL="https://www.dropbox.com/s/4tjdhx2zvx49w5d/php-5.3.27-2.tar.gz"
 echo "-----> Bundling PHP version $PHP_VERSION"
-curl --max-time 60 --location "$PHP_URL" | tar vxz
+curl --silent --max-time 60 --location "$PHP_URL" | tar xz
 
-echo `ls -al`
-
+echo "PATH: $PATH"
+export PATH="${PATH}:${BUILD_DIR}/php/bin"
 echo "PATH: $PATH"
 
 # update config files
@@ -62,8 +61,8 @@ cp $LP_DIR/conf/httpd.conf $APACHE_PATH/conf
 cp $LP_DIR/conf/php.ini php
 
 # make php available on bin
-mkdir -p bin
-ln -s /app/php/bin/php bin/php
+##mkdir -p bin
+##ln -s /app/php/bin/php bin/php
 
 cat >>boot.sh <<EOF
 for var in \`env|cut -f1 -d=\`; do
