@@ -4,6 +4,8 @@
 # fail fast
 set -e
 
+set -o pipefail
+
 # Heroku Revision.
 #
 # Affixed to all vendored binary output to represent changes to the
