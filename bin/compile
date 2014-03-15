@@ -36,7 +36,7 @@ echo "LP_DIR: $LP_DIR"
 # include .files when moving things around
 shopt -s dotglob
 
-mkdir -p $BUILD_DIR $CACHE_DIR ${BUNDLE_DIR} ${BUILD_DIR}/local ${BUILD_DIR}/vendor/bin ${COMPOSER_HOME} ${BUILD_DIR}/.profile.d
+mkdir -p $BUILD_DIR $CACHE_DIR ${BUNDLE_DIR} ${BUILD_DIR}/local ${BUILD_DIR}/bin  ${BUILD_DIR}/.profile.d
 
 cd $BUILD_DIR
 
@@ -70,7 +70,7 @@ export PATH="${PATH}:/app/php/bin"
 cp $LP_DIR/conf/httpd.conf $APACHE_PATH/conf
 cp $LP_DIR/conf/php.ini php
 
-cp -vn ${LP_DIR}/.profile.d/00-APACHE-PHP.sh ${BUILD_DIR}/.profile.d/00-APACHE-PHP.sh
+cp -vn ${LP_DIR}/.profile.d/* ${BUILD_DIR}/.profile.d/
 
 # make php available on bin
 mkdir -p bin
