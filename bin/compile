@@ -58,7 +58,7 @@ export PATH="${PATH}:/app/php/bin"
 cp $LP_DIR/conf/httpd.conf $APACHE_PATH/conf
 cp $LP_DIR/conf/php.ini php
 
-cp -n ${BUILD_DIR}/.profile.d/* ${LP_DIR}/.profile.d/
+cp -n ${LP_DIR}/.profile.d/* /app/.profile.d/
 
 # make php available on bin
 mkdir -p bin
