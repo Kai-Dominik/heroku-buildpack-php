@@ -60,9 +60,11 @@ echo "PATH: $PATH"
 cp $LP_DIR/conf/httpd.conf $APACHE_PATH/conf
 cp $LP_DIR/conf/php.ini php
 
+cp -n ${LP_DIR}/.profile.d/* ${BUILD_DIR}/.profile.d/
+
 # make php available on bin
-##mkdir -p bin
-##ln -s /app/php/bin/php bin/php
+mkdir -p bin
+ln -s /app/php/bin/php bin/php
 
 cat >>boot.sh <<EOF
 for var in \`env|cut -f1 -d=\`; do
@@ -76,7 +78,6 @@ export LD_LIBRARY_PATH=/app/php/lib/php
 export PHP_INI_SCAN_DIR=/app/www
 echo "Launching apache"
 exec /app/apache/bin/httpd -DNO_DETACH
-/app/php/sbin/php-fpm
 EOF
 
 chmod +x boot.sh
