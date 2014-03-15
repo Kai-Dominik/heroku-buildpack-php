@@ -33,17 +33,13 @@ echo "LP_DIR: $LP_DIR"
 # include .files when moving things around
 shopt -s dotglob
 
-echo "Create folder: ${BUILD_DIR}/.profile.d"
-mkdir -p ${BUILD_DIR}/.profile.d
-
-cd $BUILD_DIR
-cd .profile.d
-cd ..
-
 # move app things to www
 mkdir -p $CACHE_DIR/www
 mv * $CACHE_DIR/www
 mv $CACHE_DIR/www .
+
+echo "Create folder: ${BUILD_DIR}/.profile.d"
+mkdir -p ${BUILD_DIR}/.profile.d
 
 # keep Procfile
 if [ -f www/Procfile ]; then
