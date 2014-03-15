@@ -64,7 +64,7 @@ cp $LP_DIR/conf/httpd.conf $APACHE_PATH/conf
 cp $LP_DIR/conf/php.ini php
 
 mkdir -p /app/.profile.d/
-cp -n ${LP_DIR}/.profile.d/* /app/.profile.d/
+cp -n ${LP_DIR}/.profile.d/* ${BUILD_DIR}/.profile.d/
 
 # make php available on bin
 mkdir -p bin
