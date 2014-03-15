@@ -53,7 +53,7 @@ echo "-----> Bundling PHP version $PHP_VERSION"
 curl --silent --max-time 60 --location "$PHP_URL" | tar xz
 
 echo "PATH: $PATH"
-export PATH="${PATH}:${BUILD_DIR}/php/bin"
+export PATH="${PATH}:/app/php/bin"
 echo "PATH: $PATH"
 
 # update config files
