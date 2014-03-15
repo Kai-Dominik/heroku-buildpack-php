@@ -6,6 +6,9 @@ set -e
 
 set -o pipefail
 
+# include .files when moving things around
+shopt -s dotglob
+
 # Heroku Revision.
 #
 # Affixed to all vendored binary output to represent changes to the
